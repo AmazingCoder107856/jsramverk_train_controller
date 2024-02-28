@@ -1,10 +1,9 @@
 import React from 'react';
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App.js';
 import TicketsForm from './TicketsForm.jsx';
-// import Tickets from './Tickets.jsx';
 import Login from './Login.jsx';
 import Register from './Register.jsx';
 import Tickets from './Tickets.jsx'
@@ -15,8 +14,7 @@ import PrivateRoute from './PrivateRoute';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-        {/* <BrowserRouter basename="/~dadh22/editor/"> */}
-        <BrowserRouter>
+        <HashRouter basename="/">
           <Routes>
         <Route exact path='/' element={<PrivateRoute/>}>
             <Route exact path='/' element={<div className="side-by-side"><App/></div>}/>
@@ -33,7 +31,7 @@ root.render(
           <Route exact path='/register' element={<div className="register"><Register/></div>} />
           <Route exact path='/login' element={<div className="login"><Login/></div>}/>
         </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 
 );

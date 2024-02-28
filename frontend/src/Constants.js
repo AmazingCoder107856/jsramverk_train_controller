@@ -1,5 +1,5 @@
 const production = {
-    url: 'https://jsramverk-trains-meda23.azurewebsites.net'
+    url: 'https://jsramverk-train-backend-glpa22.azurewebsites.net/'
 };
 const development = {
     url: 'http://localhost:1337'
