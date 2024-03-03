@@ -9,7 +9,7 @@ const collectionName = "tickets";
 const database = {
     getDb: async function getDb() {
         let dsn = 'mongodb+srv://'+process.env.ATLAS_USERNAME+':'+process.env.ATLAS_PASSWORD+
-        '@jsramverk.k20ii9n.mongodb.net/?retryWrites=true&w=majority&appName=jsramverk';
+        '@jsramverk.dmvxw4g.mongodb.net/?retryWrites=true&w=majority&appName=Jsramverk';
 
         if (process.env.NODE_ENV === 'test') {
             dsn = "mongodb://localhost:27017/test";
@@ -28,7 +28,7 @@ const database = {
 
     getUserDb: async function getUserDb() {
         let dsn = 'mongodb+srv://'+process.env.ATLAS_USERNAME+':'+process.env.ATLAS_PASSWORD+
-        '@jsramverk.k20ii9n.mongodb.net/?retryWrites=true&w=majority&appName=jsramverk';
+        '@jsramverk.dmvxw4g.mongodb.net/?retryWrites=true&w=majority&appName=Jsramverk';
 
         if (process.env.NODE_ENV === 'test') {
             dsn = "mongodb://localhost:27017/test";

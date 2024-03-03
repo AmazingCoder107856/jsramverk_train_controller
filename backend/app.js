@@ -43,11 +43,21 @@ app.disable('x-powered-by');
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
+var allowedOrigins = ['http://localhost:3000', 'http://localhost:1337', 'https://www.student.bth.se'];
+
 const io = require("socket.io")(httpServer, {
     cors: {
-        //origin: "https://www.student.bth.se",
-        origin: "http://localhost:3000",
-        methods: ["GET", "POST"]
+        origin: function(origin, callback){
+          // allow requests with no origin (like mobile apps or curl requests)
+          if(!origin) return callback(null, true);
+          if(allowedOrigins.indexOf(origin) === -1){
+            var msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+            return callback(new Error(msg), false);
+          }
+          return callback(null, true);
+        },
+        // origin: "http://localhost:3000, http://localhost:1337, https://www.student.bth.se",
+        methods: ['GET', 'POST'],
     }
 });
 
@@ -55,7 +65,7 @@ const port = process.env.PORT || 1337;
 
 app.get('/', (req, res) => {
     res.json({
-        data: 'Hello World!'
+        data: 'Hello World! This is the API for the course jsramverk, by students glpa22 and haco22.'
     });
 });
 
