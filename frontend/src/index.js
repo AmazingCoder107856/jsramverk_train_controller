@@ -14,7 +14,7 @@ import PrivateRoute from './PrivateRoute';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-        <HashRouter basename="/">
+        <HashRouter basename='/'>
           <Routes>
         <Route exact path='/' element={<PrivateRoute/>}>
             <Route exact path='/' element={<div className="side-by-side"><App/></div>}/>
